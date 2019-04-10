@@ -37,11 +37,10 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
         holder.tvContent.setText(item.getImageContent());
 
         Glide.with(context)
+                .asBitmap()
                 .load(item.getImageUrl())
-                .apply(new RequestOptions().override(120, 60).centerCrop().placeholder(R.drawable.ic_launcher_background)
-                )
+                .apply(new RequestOptions().override(120, 60).diskCacheStrategy(DiskCacheStrategy.ALL))
                 .into(holder.img);
-
     }
 
     @Override
@@ -56,8 +55,8 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
         ViewHolder(View itemView) {
             super(itemView);
 
-            tvContent = itemView.findViewById(R.id.tv_content);
-            img = itemView.findViewById(R.id.img);
+            tvContent = itemView.findViewById(R.id.tvImageContent);
+            img = itemView.findViewById(R.id.imgAvatar);
         }
     }
 }
