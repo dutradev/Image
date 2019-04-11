@@ -25,11 +25,11 @@ class ImageAdapter(private val context: Activity, private val data: List<ImageMo
 
     class ImageViewHolder(private val context: Activity, private val containerView: View) : RecyclerView.ViewHolder(containerView) {
         fun bind(item: ImageModel) {
-            containerView.tvImageContent.text = item.content
+            containerView.tvImageContent.text = item.imageContent
             Glide.with(context)
                     .asBitmap()
-                    .load(item.url)
-                    .apply(RequestOptions().override(100, 80).diskCacheStrategy(DiskCacheStrategy.ALL))
+                    .load(item.imageUrl)
+                    .apply(RequestOptions().override(120, 60).diskCacheStrategy(DiskCacheStrategy.ALL))
                     .into(containerView.imgAvatar)
         }
     }

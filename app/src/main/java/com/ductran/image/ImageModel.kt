@@ -1,5 +1,6 @@
 package com.ductran.image
 
-class ImageModel(var url: String, var content: String) {
-
+class ImageModel {
+    var imageUrl: String? = null
+    var imageContent: String? = null
 }

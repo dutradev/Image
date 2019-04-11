@@ -14,15 +14,17 @@ class MainActivity : AppCompatActivity() {
         rvData.adapter = adapter
     }
 
-    private fun getData():List<ImageModel>{
+    private fun getData(): List<ImageModel> {
         val result = ArrayList<ImageModel>()
 
         val urlList = API().getImageUrlList()
         val contentList = API().getImageContent()
 
-        for(index in 0 until urlList.size){
-            result.get(index).url = urlList.get(index)
-            result.get(index).content = contentList.get(index)
+        for (index in 0 until urlList.size) {
+            val item = ImageModel()
+            item.imageUrl = urlList.get(index)
+            item.imageContent = contentList.get(index)
+            result.add(item)
         }
         return result
     }
